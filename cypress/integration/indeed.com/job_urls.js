@@ -1,9 +1,9 @@
 // <reference types="cypress" />
 
-const COUNTRY_CODE = 'sg'
+const COUNTRY_CODE = 'au'
 const BASE_URL = `https://${COUNTRY_CODE}.indeed.com`
 const JOB_KEYWORDS = 'data+science'
-const JOB_TOTAL_COUNT = 6340
+const JOB_TOTAL_COUNT = 2432
 
 function range(start, stop, step) {
     var a = [start], b = start;
@@ -27,7 +27,7 @@ describe('Collecting Data', () => {
                             const formatted_urls = JOB_URLS.join("\r\n")
                             // console.log(`completed for chunk: ${chunk}`)
                             // cy.task('log', JOB_URLS.join("\r\n"))
-                            cy.writeFile(`./data/${COUNTRY_CODE}-${JOB_KEYWORDS}.csv`, formatted_urls, {flag: "a+"})
+                            cy.writeFile(`./output/${COUNTRY_CODE}-${JOB_KEYWORDS}.csv`, formatted_urls, {flag: "a+"})
                         })
             })
         })
